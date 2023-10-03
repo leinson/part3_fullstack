@@ -26,20 +26,28 @@ let persons = [
 ]
 
 
-
-
 app.get('/', (req, res) => {
-    res.send('<h1>Hello World!</h1>')
-  })
+  res.send('<h1>Hello World!</h1>')
+})
 
 app.get('/api/persons', (req, res) => {
-    res.json(persons)
-  })
+  res.json(persons)
+})
+
+app.get('/api/persons/:id', (req, res) => {
+  const id = Number(req.params.id)
+  const person = persons.find(person => person.id === id)
+  if (person) {
+    res.json(person)
+  } else {
+    res.status(404).end()
+  }
+})
 
 app.get('/info', (req, res) => {
-    let person_amount = `Phonebook has info for ${persons.length} people`
-    res.send(person_amount + '<br><br>' + new Date())
-  })
+  let person_amount = `Phonebook has info for ${persons.length} people`
+  res.send(person_amount + '<br><br>' + new Date())
+})
 
 
 const PORT = 3001
