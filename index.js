@@ -1,7 +1,10 @@
 const express = require('express')
 const app = express()
+const morgan = require('morgan')
+
 
 app.use(express.json())
+app.use(morgan('tiny'))
 
 let persons = [
       {
@@ -86,8 +89,6 @@ app.get('/info', (req, res) => {
   let person_amount = `Phonebook has info for ${persons.length} people`
   res.send(person_amount + '<br><br>' + new Date())
 })
-
-
 
 const PORT = 3001
 app.listen(PORT)
