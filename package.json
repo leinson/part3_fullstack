@@ -8,7 +8,8 @@
     "dev": "nodemon index.js",
     "test": "echo \\\"Error: no test specified\\\" && exit 1",
     "build:ui": "rm -rf build && cd ../fullstackopen/part2/puhelinluettelo/ && npm run build && cp -r build ../../../part3_fullstack/",
-    "deploy:full": "npm run build:ui && git add . && git commit -m uibuild && git push"
+    "deploy:full": "npm run build:ui && git add . && git commit -m uibuild && git push",
+    "lint": "eslint ."
   },
   "author": "Hannah Leinson",
   "license": "MIT",
@@ -20,6 +21,7 @@
     "morgan": "^1.10.0"
   },
   "devDependencies": {
+    "eslint": "^8.52.0",
     "nodemon": "^3.0.1"
   },
   "proxy": "http://localhost:3001"
